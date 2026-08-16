@@ -1,0 +1,27 @@
+package com.parquesoft.minegocio.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.parquesoft.minegocio.domain.Libro;
+import com.parquesoft.minegocio.service.LibroService;
+
+@RestController
+@RequestMapping("/api/libro")
+public class LibroController {
+	
+	private final LibroService libroService;
+	
+	public LibroController(LibroService libroService) {
+		super();
+		this.libroService = libroService;
+	}
+	
+	@GetMapping("listarLibros")
+	public List<Libro> listarLibros() {
+		return libroService.listarTodos();
+	}
+}
