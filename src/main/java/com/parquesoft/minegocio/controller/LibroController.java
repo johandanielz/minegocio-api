@@ -3,6 +3,7 @@ package com.parquesoft.minegocio.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,4 +25,11 @@ public class LibroController {
 	public List<Libro> listarLibros() {
 		return libroService.listarTodos();
 	}
+	
+	
+	@GetMapping("/{id}")
+	public Libro obtenerPorId(@PathVariable Long id) {
+		return libroService.buscarPorId(id);
+	}
+	
 }
